@@ -101,7 +101,12 @@ const Hero = () => {
         }
     }, [inputValue, marketingCost]);
 
-
+    const onlyNumericValue = (e) => {
+        const value = e.target.value;
+        if (/^[0-9.]*$/.test(value)) {
+            setInputValue(value);
+        }
+    }
 
     return (
         <div className="w-full flex flex-col items-center justify-center">
@@ -208,7 +213,7 @@ const Hero = () => {
                             </label>
                         </div>
 
-                        <input type="text" id="Ratio" name="Ratio" value={inputValue} onChange={(e) => setInputValue(e.target.value)} className="bg-[#F1E9DE] rounded-[50px] h-[30vh] " style={{ outline: 'none' }} />
+                        <input type="text" id="Ratio" name="Ratio" value={inputValue} onChange={onlyNumericValue} className="bg-[#F1E9DE] rounded-[50px] h-[30vh] " style={{ outline: 'none' }} />
                     </div>
                 </div>
 
