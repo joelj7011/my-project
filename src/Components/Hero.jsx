@@ -91,7 +91,12 @@ const Hero = () => {
         if (isNaN(inputValue)) {
             setResult('');
         } else {
-            const calculatedResult = inputValue * marketingCost;
+            let calculatedResult = (inputValue * marketingCost);
+            if (calculatedResult < 1) {
+                calculatedResult = (inputValue * marketingCost).toFixed(5);
+            } else {
+                calculatedResult = (inputValue * marketingCost).toFixed(1);
+            }
             setResult(calculatedResult);
         }
     }, [inputValue, marketingCost]);
